@@ -15,6 +15,9 @@ import { Users as UsersIcon } from '../icons/users';
 import { XCircle as XCircleIcon } from '../icons/x-circle';
 import { Logo } from './logo';
 import { NavItem } from './nav-item';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+
 
 const items = [
   {
@@ -31,6 +34,16 @@ const items = [
     href: '/products',
     icon: (<ShoppingBagIcon fontSize="small" />),
     title: 'Products'
+  },
+  {
+    href: '/analytics',
+    icon: (<BarChartIcon fontSize="small" />),
+    title: 'Analytics'
+  },
+  {
+    href: '/calendar',
+    icon: (<DateRangeIcon fontSize="small" />),
+    title: 'Calendar'
   },
   {
     href: '/account',
