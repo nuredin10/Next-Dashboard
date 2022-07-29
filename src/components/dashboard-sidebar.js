@@ -17,7 +17,9 @@ import { Logo } from './logo';
 import { NavItem } from './nav-item';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DateRangeIcon from '@mui/icons-material/DateRange';
-
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import EmailIcon from '@mui/icons-material/Email';
+import ChatIcon from '@mui/icons-material/Chat';
 
 const items = [
   {
@@ -45,6 +47,21 @@ const items = [
     icon: (<DateRangeIcon fontSize="small" />),
     title: 'Calendar'
   },
+  {
+    href: '/kanban',
+    icon: (<ListAltIcon fontSize="small" />),
+    title: 'Kanban'
+  },
+  // {
+  //   href: '/email',
+  //   icon: (<EmailIcon fontSize="small" />),
+  //   title: 'Email'
+  // },
+  // {
+  //   href: '/chat',
+  //   icon: (<ChatIcon fontSize="small" />),
+  //   title: 'Chat'
+  // },
   {
     href: '/account',
     icon: (<UserIcon fontSize="small" />),
@@ -166,16 +183,20 @@ export const DashboardSidebar = (props) => {
         />
         <Box sx={{ flexGrow: 1 }}>
           {items.map((item) => (
-            <NavItem
-              key={item.title}
-              icon={item.icon}
-              href={item.href}
-              title={item.title}
-            />
+            <>
+              <NavItem
+                key={item.title}
+
+                icon={item.icon}
+                href={item.href}
+                title={item.title}
+              />
+              
+            </>
           ))}
         </Box>
         <Divider sx={{ borderColor: '#2D3748' }} />
-        <Box
+        {/* <Box
           sx={{
             px: 2,
             py: 3
@@ -224,7 +245,7 @@ export const DashboardSidebar = (props) => {
               Pro Live Preview
             </Button>
           </NextLink>
-        </Box>
+        </Box> */}
       </Box>
     </>
   );

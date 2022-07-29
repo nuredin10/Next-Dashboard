@@ -59,20 +59,6 @@ const Calendar = () => {
   )
 };
 
-// const Calendar = () => (
-//   <>
-//     <Head>
-//       <title>
-//         Calendar | Material Kit
-//       </title>
-//     </Head>
-//     <Box>
-//       <Container maxWidth={false}>
-//         <Typography variant='h1'>Calendar</Typography>
-//       </Container>
-//     </Box>
-//   </>
-// );
 Calendar.getLayout = (page) => (
   <DashboardLayout>
     {page}
