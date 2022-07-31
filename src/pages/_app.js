@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import '../styles/globals.css'
 import { CacheProvider } from '@emotion/react';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
