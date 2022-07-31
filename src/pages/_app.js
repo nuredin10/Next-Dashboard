@@ -6,8 +6,6 @@ import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { createEmotionCache } from '../utils/create-emotion-cache';
 import { theme } from '../theme';
-// import 'scheduler-react/lib/css/style.css'
-
 
 const clientSideEmotionCache = createEmotionCache();
 

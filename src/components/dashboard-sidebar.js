@@ -15,8 +15,11 @@ import { Users as UsersIcon } from '../icons/users';
 import { XCircle as XCircleIcon } from '../icons/x-circle';
 import { Logo } from './logo';
 import { NavItem } from './nav-item';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import DateRangeIcon from '@mui/icons-material/DateRange';
-import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import EmailIcon from '@mui/icons-material/Email';
+import ChatIcon from '@mui/icons-material/Chat';
 
 const items = [
   {
@@ -36,7 +39,7 @@ const items = [
   },
   {
     href: '/analytics',
-    icon: (<SignalCellularAltIcon fontSize="small" />),
+    icon: (<BarChartIcon fontSize="small" />),
     title: 'Analytics'
   },
   {
@@ -44,6 +47,21 @@ const items = [
     icon: (<DateRangeIcon fontSize="small" />),
     title: 'Calendar'
   },
+  {
+    href: '/kanban',
+    icon: (<ListAltIcon fontSize="small" />),
+    title: 'Kanban'
+  },
+  // {
+  //   href: '/email',
+  //   icon: (<EmailIcon fontSize="small" />),
+  //   title: 'Email'
+  // },
+  // {
+  //   href: '/chat',
+  //   icon: (<ChatIcon fontSize="small" />),
+  //   title: 'Chat'
+  // },
   {
     href: '/account',
     icon: (<UserIcon fontSize="small" />),
@@ -165,12 +183,16 @@ export const DashboardSidebar = (props) => {
         />
         <Box sx={{ flexGrow: 1 }}>
           {items.map((item) => (
-            <NavItem
-              key={item.title}
-              icon={item.icon}
-              href={item.href}
-              title={item.title}
-            />
+            <>
+              <NavItem
+                key={item.title}
+
+                icon={item.icon}
+                href={item.href}
+                title={item.title}
+              />
+              
+            </>
           ))}
         </Box>
         <Divider sx={{ borderColor: '#2D3748' }} />
