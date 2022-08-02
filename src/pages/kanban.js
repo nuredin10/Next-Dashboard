@@ -107,7 +107,7 @@ const Kanban = () => {
                             ${snapshot.isDraggingOver && "bg-green-100"}`}
                               >
                                 <span
-                                  className="w-full h-1 bg-gradient-to-r from-pink-700 to-red-200
+                                  className="w-full h-1 
                           absolute inset-x-0 top-0"
                                 ></span>
                                 <h4 className=" p-3 flex justify-between items-center mb-2">

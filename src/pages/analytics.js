@@ -4,10 +4,13 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import { DashboardLayout } from '../components/dashboard-layout';
 import { Doughnut, Bar,LineElement,BubbleController,RadarController,TimeScale} from 'react-chartjs-2';
 import { Pie } from "react-chartjs-2";
+import {Participant} from "react-chartjs-2"
 import { UserData } from '../__mocks__/Data';
 // import Grid from '@mui/material/Grid';
+import RichTextEditor from 'src/components/rich-text-editor.js/RichTextEditor';
 
 const Analytics = () => {
+  console.log('module ', Participant)
 
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.year),
@@ -48,7 +51,7 @@ const Analytics = () => {
               <Bar data={userData} />
             </Grid>
             {/* <Grid item xs={6}>
-              <ArcElement data={userData} width="10" />
+              <Floating data={userData} width="10" />
             </Grid> */}
             {/* <Grid item xs={6}>
               <LineElement data={userData} />
@@ -63,6 +66,7 @@ const Analytics = () => {
               <TimeScale data={userData} />
             </Grid> */}
           </Grid>
+          <RichTextEditor/>
         </Container>
       </Box>
     </>

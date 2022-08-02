@@ -22,13 +22,13 @@ function CardItem({ data, index }) {
         >
           <label
             className={`bg-gradient-to-r
-              px-2 py-1 rounded text-white text-sm
+              px-2 py-1 rounded text-black text-sm
               ${
                 data.priority === 0
-                  ? "from-blue-600 to-blue-400"
+                  ? "from-blue-300 to-blue-100"
                   : data.priority === 1
-                  ? "from-green-600 to-green-400"
-                  : "from-red-600 to-red-400"
+                  ? "from-green-300 to-green-100"
+                  : "from-red-300 to-red-100"
               }
               `}
           >
@@ -65,14 +65,14 @@ function CardItem({ data, index }) {
                   </li>
                 );
               })}
-              <li>
+              {/* <li>
                 <button
                   className="border border-dashed flex items-center w-9 h-9 border-gray-500 justify-center
                     rounded-full"
                 >
                   <PlusIcon className="w-5 h-5 text-gray-500" />
                 </button>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
