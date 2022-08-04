@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { DashboardLayout } from '../components/dashboard-layout';
-import { Doughnut, Bar,LineElement,BubbleController,RadarController,TimeScale} from 'react-chartjs-2';
+import { Doughnut, Line, Bar,LineElement,BubbleController,RadarController,TimeScale} from 'react-chartjs-2';
 import { Pie } from "react-chartjs-2";
 import {Participant} from "react-chartjs-2"
 import { UserData } from '../__mocks__/Data';
@@ -44,15 +44,15 @@ const Analytics = () => {
         <Container maxWidth={false}>
           <Typography variant='h1'>Analytics</Typography>
           <Grid container spacing={2}>
-            <Grid item xs={4}>
-              <Doughnut data={userData} width="10" />
+            <Grid item xs={6}>
+              <Doughnut data={userData} height='5' width="10" />
             </Grid>
             <Grid item xs={6}>
               <Bar data={userData} />
             </Grid>
-            {/* <Grid item xs={6}>
-              <Floating data={userData} width="10" />
-            </Grid> */}
+            <Grid item xs={6}>
+              <Line data={userData} width="10" height='5'/>
+            </Grid>
             {/* <Grid item xs={6}>
               <LineElement data={userData} />
             </Grid>
