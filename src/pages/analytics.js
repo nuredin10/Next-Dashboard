@@ -2,10 +2,16 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { DashboardLayout } from '../components/dashboard-layout';
-import { Doughnut, Bar,LineElement,BubbleController,RadarController,TimeScale} from 'react-chartjs-2';
+import { Doughnut, Line, Bar, Scale, BubbleController, RadarController, TimeScale } from 'react-chartjs-2';
+import {Area} from 'react-chartjs-2'
 import { Pie } from "react-chartjs-2";
-import {Participant} from "react-chartjs-2"
+import { Participant } from "react-chartjs-2"
 import { UserData } from '../__mocks__/Data';
+import { Budget } from '../components/dashboard/budget';
+import { TotalCustomers } from '../components/dashboard/total-customers';
+import { TotalProfit } from '../components/dashboard/total-profit';
+import { TasksProgress } from '../components/dashboard/tasks-progress';
+import { Sales } from '../components/dashboard/sales';
 // import Grid from '@mui/material/Grid';
 import RichTextEditor from 'src/components/rich-text-editor.js/RichTextEditor';
 
@@ -43,30 +49,80 @@ const Analytics = () => {
       <Box>
         <Container maxWidth={false}>
           <Typography variant='h1'>Analytics</Typography>
-          <Grid container spacing={2}>
+          <Grid
+            container
+            spacing={3}
+          >
+            <Grid
+              item
+              lg={3}
+              sm={6}
+              xl={3}
+              xs={12}
+            >
+              <Budget />
+            </Grid>
+            <Grid
+              item
+              xl={3}
+              lg={3}
+              sm={6}
+              xs={12}
+            >
+              <TotalCustomers />
+            </Grid>
+            <Grid
+              item
+              xl={3}
+              lg={3}
+              sm={6}
+              xs={12}
+            >
+              <TasksProgress />
+            </Grid>
+            <Grid
+              item
+              xl={3}
+              lg={3}
+              sm={6}
+              xs={12}
+            >
+              <TotalProfit sx={{ height: '100%' }} />
+            </Grid>
+          </Grid>
+          <Grid container spacing={4}>
+          <Grid
+            item
+            lg={8}
+            md={12}
+            xl={9}
+            xs={12}
+          >
+            <Sales />
+          </Grid>
             <Grid item xs={4}>
               <Doughnut data={userData} width="10" />
             </Grid>
             <Grid item xs={6}>
               <Bar data={userData} />
             </Grid>
-            {/* <Grid item xs={6}>
-              <Floating data={userData} width="10" />
+            <Grid item xs={6}>
+              <Line data={userData} width="10" height='5' />
+            </Grid>
+             {/* <Grid item xs={6}>
+              <Line data={userData} />
             </Grid> */}
             {/* <Grid item xs={6}>
-              <LineElement data={userData} />
-            </Grid>
-            <Grid item xs={6}>
-              <BubbleController data={userData} width="10" />
-            </Grid>
-            <Grid item xs={6}>
+              <Area data={userData} width="10" />
+            </Grid> */}
+            {/*<Grid item xs={6}>
               <RadarController data={userData} />
             </Grid>
             <Grid item xs={8}>
               <TimeScale data={userData} />
             </Grid> */}
           </Grid>
-          <RichTextEditor/>
+          <RichTextEditor />
         </Container>
       </Box>
     </>
