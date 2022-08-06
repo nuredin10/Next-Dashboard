@@ -6,7 +6,8 @@ import {
   CardActions,
   CardContent,
   Divider,
-  Typography
+  Typography,
+  Input
 } from '@mui/material';
 
 const user = {
@@ -59,11 +60,15 @@ export const AccountProfile = (props) => (
     </CardContent>
     <Divider />
     <CardActions>
+      
+      {/* <Input type='file'>asd</Input> */}
       <Button
         color="primary"
         fullWidth
         variant="text"
+        
       >
+        
         Upload picture
       </Button>
     </CardActions>

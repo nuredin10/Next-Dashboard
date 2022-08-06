@@ -140,6 +140,12 @@ const Kanban = () => {
                                         rows={3} placeholder="Task info"
                                         data-id={bIndex}
                                         onKeyDown={(e) => onTextAreaKeyPress(e)} />
+                                      <h3>Set priority</h3>
+                                      <select >
+                                        <option>High</option>
+                                        <option>Medium</option>
+                                        <option>Low</option>
+                                      </select>
                                     </div>
                                   ) : (
                                     <button

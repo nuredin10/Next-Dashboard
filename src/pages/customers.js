@@ -7,7 +7,7 @@ import { DashboardLayout } from '../components/dashboard-layout';
 import { customers } from '../__mocks__/customers';
 
 const Customers = () => {
-  const [customerList, setCustomerList] = useState([])
+  const [customerList, setCustomerList] = useState(customers)
 
 
   useEffect(() =>{
@@ -28,7 +28,7 @@ const Customers = () => {
         }}
       >
         <Container maxWidth={false}>
-          <CustomerListToolbar setCustomerList={customerList} customerList={customerList}/>
+          <CustomerListToolbar setCustomerList={setCustomerList} customerList={customerList}/>
           <Box sx={{ mt: 3 }}>
             <CustomerListResults customers={customerList} />
           </Box>

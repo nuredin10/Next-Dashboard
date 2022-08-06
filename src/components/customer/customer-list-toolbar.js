@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { v4 as uuid } from 'uuid';
 
 import {
   Box,
@@ -12,21 +13,51 @@ import {
 import { Search as SearchIcon } from '../../icons/search';
 import { Upload as UploadIcon } from '../../icons/upload';
 import { Download as DownloadIcon } from '../../icons/download';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 
 export const CustomerListToolbar = (props) => {
   const [searchedInput, setSearchedInput] = useState('')
+  const [beforeSearch, setBeforeSearch] = useState([])
+  let searchType = 'name'
 
-  const inputOnchangeHandler=(e)=>{
-    // if(e.KeyCode == 13)
-      setSearchedInput(e.target.value)
-      console.log(props.customerList)
+  let result = [];
+
+  const inputOnchangeHandler = (e) => {
+
+    setSearchedInput(e.target.value.toLowerCase())
+
   }
-  useEffect(()=>{
-      if(searchedInput == props.customerList.name)
-        props.setCustomerList(null)
-  },[searchedInput])
 
-  
+  useEffect(() => {
+    setBeforeSearch(props.customerList);
+  }, [])
+
+
+  useEffect(() => {
+
+    result = props.customerList.filter((data) => {
+      return data.name.toLowerCase().search(searchedInput) != -1 || data.phone.toLowerCase().search(searchedInput) != -1 || data.email.toLowerCase().search(searchedInput) != -1;
+    });
+
+    if (searchedInput.length === 0) {
+      props.setCustomerList(beforeSearch)
+    } else {
+      props.setCustomerList(result);
+    }
+
+
+  }, [searchedInput])
+
+
+  const dropdownHandleChange = (event) => {
+    searchType = event.target.value
+    // setSearchType(event.target.value.toString());
+  };
+
   return (
     <Box {...props}>
       <Box
@@ -65,13 +96,13 @@ export const CustomerListToolbar = (props) => {
           </Button>
         </Box>
       </Box>
-      <Box sx={{ mt: 3 }}>
+      <Box sx={{ mt: 3, display: 'flex' }}>
         <Card>
           <CardContent>
             <Box sx={{ maxWidth: 500 }}>
               <TextField
-              onChange={inputOnchangeHandler}
-              value={searchedInput}
+                onChange={inputOnchangeHandler}
+                value={searchedInput}
                 fullWidth
                 InputProps={{
                   startAdornment: (
