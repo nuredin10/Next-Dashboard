@@ -17,12 +17,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { width } from '@mui/system';
 
 
 export const CustomerListToolbar = (props) => {
   const [searchedInput, setSearchedInput] = useState('')
   const [beforeSearch, setBeforeSearch] = useState([])
-  let searchType = 'name'
+  const [sortedData, setSortedData] = useState([])
+  const [sortBy, setSortBy] = useState('')
 
   let result = [];
 
@@ -52,11 +54,27 @@ export const CustomerListToolbar = (props) => {
 
   }, [searchedInput])
 
-
+  let sort = []
   const dropdownHandleChange = (event) => {
-    searchType = event.target.value
-    // setSearchType(event.target.value.toString());
+    setSortBy(event.target.value)
+
+     // setSearchType(event.target.value.toString());
   };
+
+  useEffect(()=>{
+    const sortArray = type => {
+      const types = {
+        name: 'name',
+        phone: 'phone',
+        email: 'email',
+      };
+      const sortProperty = types[type];
+      const sorted = [...props.customerList].sort((a, b) => b.name - a.name);
+      props.setCustomerList(sorted);
+      console.log(sorted)
+    };
+    sortArray(sortBy);
+  },[sortBy])
 
   return (
     <Box {...props}>
@@ -96,7 +114,7 @@ export const CustomerListToolbar = (props) => {
           </Button>
         </Box>
       </Box>
-      <Box sx={{ mt: 3, display: 'flex' }}>
+      <Box sx={{ mt: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Card>
           <CardContent>
             <Box sx={{ maxWidth: 500 }}>
@@ -121,6 +139,22 @@ export const CustomerListToolbar = (props) => {
               />
             </Box>
           </CardContent>
+        </Card>
+        <Card sx={{width: '10%', height: '90%'}}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={sortBy}
+              label="Sort"
+              onChange={dropdownHandleChange}
+            >
+              <MenuItem value="name">Name</MenuItem>
+              <MenuItem value="phone">Phone</MenuItem>
+              <MenuItem value="email">Email</MenuItem>
+            </Select>
+          </FormControl>
         </Card>
       </Box>
     </Box>
