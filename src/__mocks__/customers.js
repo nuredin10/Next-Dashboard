@@ -140,5 +140,5 @@ export const customers = [
     email: 'merrile.burgett@devias.io',
     name: 'Merrile Burgett',
     phone: '801-301-7894'
-  }
+  },
 ];

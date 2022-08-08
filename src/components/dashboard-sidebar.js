@@ -38,6 +38,11 @@ const items = [
     title: 'Products'
   },
   {
+    href: '/products',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Products'
+  },
+  {
     href: '/analytics',
     icon: (<BarChartIcon fontSize="small" />),
     title: 'Analytics'
