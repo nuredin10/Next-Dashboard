@@ -92,9 +92,17 @@ export const CustomerListResults = ({ customers, ...rest }) => {
   //   setPage(newPage);
   // };
 
+  const Details = () =>{
+    return(
+      <h2>Details</h2>
+    )
+  }
   return (
     <Card {...rest}>
-      <MUIDataTable title={"Employee List"} data={customers} columns={columns} options={options} />
+      <MUIDataTable title={"Employee List"} data={customers} columns={columns} options={options} 
+        components={{
+                  Details: Details,
+                }} />
     </Card>
   );
 };
