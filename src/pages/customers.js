@@ -46,6 +46,7 @@ const Customers = () => {
     </>
   );
 };
+Customers.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 Customers.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 

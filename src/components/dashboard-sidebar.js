@@ -20,12 +20,17 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const items = [
   {
     href: '/',
     icon: (<ChartBarIcon fontSize="small" />),
     title: 'Dashboard'
+  },
+  {
+    href: '/finance',
+    icon: (<ShoppingBagIcon fontSize="small" />),
+    title: 'Fincance'
   },
   {
     href: '/customers',
@@ -38,14 +43,14 @@ const items = [
     title: 'Products'
   },
   {
-    href: '/products',
-    icon: (<ShoppingBagIcon fontSize="small" />),
-    title: 'Products'
-  },
-  {
     href: '/analytics',
     icon: (<BarChartIcon fontSize="small" />),
     title: 'Analytics'
+  },
+  {
+    href: '/orders',
+    icon: (<ShoppingCartIcon fontSize="small" />),
+    title: 'Orders'
   },
   {
     href: '/calendar',
