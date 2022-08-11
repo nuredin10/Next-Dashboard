@@ -16,7 +16,7 @@ import Select from '@mui/material/Select';
 
 const OrdersToolBar = () => {
   return (
-    <Box sx={{ mt: 3, width: "90vw"}}>
+    <Box sx={{ mt: 3}}>
       <Grid container spacing={2}>
         <Grid item lg={10} sm={12}>
           <TextField
@@ -43,7 +43,7 @@ const OrdersToolBar = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              // value={sortBy}
+              value="sortBy"
               label="Sort"
               // onChange={dropdownHandleChange}
             >
