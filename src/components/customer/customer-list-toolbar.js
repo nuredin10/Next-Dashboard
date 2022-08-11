@@ -119,7 +119,7 @@ export const CustomerListToolbar = (props) => {
           </Button>
         </Box>
       </Box>
-      <Box sx={{ mt: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+      {/* <Box sx={{ mt: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <Card>
           <CardContent>
             <Box sx={{ maxWidth: 500 }}>
@@ -161,7 +161,7 @@ export const CustomerListToolbar = (props) => {
             </Select>
           </FormControl>
         </Card>
-      </Box>
+      </Box> */}
     </Box>
   )
 };

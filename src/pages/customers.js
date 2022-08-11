@@ -26,7 +26,7 @@ const Customers = () => {
           py: 8,
         }}
       >
-        <Container maxWidth={false}>
+        <Container maxWidth={false} >
           {newCustomer ? (
             <AddCustomer />
           ) : (
@@ -45,7 +45,8 @@ const Customers = () => {
       </Box>
     </>
   );
-  Customers.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 };
+
+Customers.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default Customers;
