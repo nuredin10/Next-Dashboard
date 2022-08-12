@@ -14,3 +14,11 @@
 .canceld-status{
     background-color: rgb(255, 176, 32);
 }
+
+.drawer-open{
+    width: 75%;
+}
+
+.drawer-close{
+    width: 100%;
+}

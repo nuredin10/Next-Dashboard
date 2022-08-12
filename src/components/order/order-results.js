@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Container, Typography, Grid, Divider, Avatar } from "@mui/material";
-import { flexbox } from '@mui/system';
+import { Box, Container, Typography, Grid, Divider, Avatar, Button } from "@mui/material";
+import { border, flexbox } from '@mui/system';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -38,7 +38,7 @@ function a11yProps(index) {
   };
 }
 
-export const OrderResults = () => {
+export const OrderResults = (props) => {
   const data = [
     {
       Date: "AUG 9",
@@ -116,6 +116,7 @@ export const OrderResults = () => {
 
   return (
     <Box sx={{ width: '100%' }}>
+
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="All" {...a11yProps(0)} />
@@ -126,11 +127,11 @@ export const OrderResults = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Box sx={{ mt: 3 }}>
-          <Grid container>
+        <Box className={`${props.drawer ? 'drawer-open' : 'drawer-close'}`} sx={{ mt: 3}}>
+          <Grid container >
             {data.map((e, i) => (
 
-              <Grid item sx={{ display: "flex", alignItems: "center", height: "15vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+              <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Box
                     sx={{
@@ -152,7 +153,7 @@ export const OrderResults = () => {
                 {
 
                 }
-                <Box className={e.status == 'Pending' ? 'pending-status' : (e.status == 'Complete' ? 'complete-status' : (e.status == 'Rejected' ? 'reject-status' : 'canceld-status'))} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: "30px", color: 'white', width: 110, height: "4vh", marginLeft: "10%" }}>
+                <Box className={e.status == 'Pending' ? 'pending-status' : (e.status == 'Complete' ? 'complete-status' : (e.status == 'Rejected' ? 'reject-status' : 'canceld-status'))} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: "30px", color: 'white', width: 110, height: 30, marginLeft: "10%" }}>
                   <Typography sx={{ textAlign: "center" }}>{e.status}</Typography>
                 </Box>
               </Grid>
@@ -166,7 +167,7 @@ export const OrderResults = () => {
             {data.map((e, i) => (
               e.status == 'Canceld' ? (
 
-                <Grid item sx={{ display: "flex", alignItems: "center", height: "15vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+                <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box
                       sx={{
@@ -203,7 +204,7 @@ export const OrderResults = () => {
             {data.map((e, i) => (
               e.status == 'Complete' ? (
 
-                <Grid item sx={{ display: "flex", alignItems: "center", height: "15vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+                <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box
                       sx={{
@@ -240,7 +241,7 @@ export const OrderResults = () => {
             {data.map((e, i) => (
               e.status == 'Pending' ? (
 
-                <Grid item sx={{ display: "flex", alignItems: "center", height: "15vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+                <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box
                       sx={{
@@ -272,12 +273,12 @@ export const OrderResults = () => {
         </Box>
       </TabPanel>
       <TabPanel value={value} index={4}>
-      <Box sx={{ mt: 3 }}>
+        <Box sx={{ mt: 3 }}>
           <Grid container>
             {data.map((e, i) => (
               e.status == 'Rejected' ? (
 
-                <Grid item sx={{ display: "flex", alignItems: "center", height: "15vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+                <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box
                       sx={{
@@ -308,39 +309,9 @@ export const OrderResults = () => {
           </Grid>
         </Box>
       </TabPanel>
+      <Button onClick={() => props.setDrawer(true)}>do</Button>
+      
     </Box>
-    // <Box sx={{mt: 3}}>
-    //   <Grid container>
-    //     {data.map((e,i) =>(
 
-    //       <Grid item sx={{display: "flex", alignItems: "center", height: "15vh",width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)"}} lg={12}>
-    //           <Box sx={{display: "flex", alignItems: "center"}}>
-    //             <Box 
-    //               sx={{
-    //                 height: "70%",
-    //                 width: 56,
-    //                 borderRadius: "15px",
-    //                 backgroundColor: "rgb(229, 231, 235)",
-    //                 padding: 1,
-    //                 textAlign: "center"
-    //               }}
-    //             >
-    //               <Typography sx={{fontWeight: "500"}}>{e.Date}</Typography>
-    //             </Box>
-    //             <Box sx={{marginLeft: "20%"}}>
-    //               <Typography variant='h6'>{e.OrderNumber}</Typography>
-    //               <Typography variant='body1'>{e.Total}</Typography>
-    //             </Box>
-    //           </Box>
-    //           {
-
-    //           }
-    //           <Box className={e.status == 'Pending' ? 'pending-status' : (e.status=='Complete' ? 'complete-status' : (e.status == 'Rejected' ? 'reject-status' : 'canceld-status'))} sx={{ display:'flex', alignItems: 'center', justifyContent: 'center', borderRadius: "30px", color: 'white', width: 110, height: "4vh", marginLeft: "10%"}}>
-    //               <Typography sx={{textAlign: "center"}}>{e.status}</Typography>
-    //           </Box>
-    //       </Grid>
-    //     ))}
-    //   </Grid>
-    // </Box>
   )
 }
