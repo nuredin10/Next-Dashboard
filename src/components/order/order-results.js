@@ -114,6 +114,9 @@ export const OrderResults = (props) => {
     setValue(newValue);
   };
 
+  const girdHover = {
+
+  }
   return (
     <Box sx={{ width: '100%' }}>
 
@@ -127,11 +130,15 @@ export const OrderResults = (props) => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Box className={`${props.drawer ? 'drawer-open' : 'drawer-close'}`} sx={{ mt: 3}}>
+        <Box className={`${props.drawer ? 'drawer-open' : 'drawer-close'}`} sx={{ mt: 3 }}>
           <Grid container >
             {data.map((e, i) => (
 
-              <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+              <Grid item sx={{
+                "&:hover": {
+                  backgroundColor: 'rgba(55, 65, 81, 0.04)'
+                }, display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)"
+              }} lg={12}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Box
                     sx={{
@@ -310,7 +317,7 @@ export const OrderResults = (props) => {
         </Box>
       </TabPanel>
       <Button onClick={() => props.setDrawer(true)}>do</Button>
-      
+
     </Box>
 
   )
