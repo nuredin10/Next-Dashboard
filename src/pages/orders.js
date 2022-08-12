@@ -8,6 +8,8 @@ import { Profit } from "../components/finance/profit";
 import OrdersToolBar from "src/components/order/order-toolbar";
 import { OrderResults } from "src/components/order/order-results";
 const Finance = () => {
+
+  
   return (
     <>
       <Head>
