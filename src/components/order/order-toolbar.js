@@ -23,7 +23,7 @@ const OrdersToolBar = (props) => {
           <Typography variant='h4'>Orders</Typography>
         </Grid>
         <Grid item>
-          <Button variant='contained' size='large'><AddIcon/>Add</Button>
+          <Button variant='contained' size='large' href='/orders/add'><AddIcon/>Add</Button>
         </Grid>
       </Grid>
       <Grid container spacing={2} sx={{display: 'flex', justifyContent: 'space-between'}}>
