@@ -23,12 +23,8 @@ const Finance = () => {
 
       >
         <Container maxWidth={false}>
-          <Typography variant="h1">Orders</Typography>
           <Box>
-            <OrdersToolBar>
-
-
-            </OrdersToolBar>
+            <OrdersToolBar drawer={drawer}></OrdersToolBar>
             <OrderResults drawer={drawer} setDrawer={setDrawer} setSelectedOrder={setSelectedOrder}/>
             <RightDrawer drawer={drawer} setDrawer={setDrawer} selectedOrder={selectedOrder}/>
             {/* <Divider sx={{ borderColor: 'gray', mt: 3}} /> */}

@@ -13,11 +13,20 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import AddIcon from '@mui/icons-material/Add';
 
-const OrdersToolBar = () => {
+const OrdersToolBar = (props) => {
   return (
-    <Box sx={{ mt: 3}}>
-      <Grid container spacing={2}>
+    <Box className={`${props.drawer ? 'drawer-open' : 'drawer-close'}`} sx={{ mt: 3}}  >
+      <Grid container spacing={3} sx={{display: 'flex', justifyContent: 'space-between', marginBottom: '3%'}}>
+        <Grid item >
+          <Typography variant='h4'>Orders</Typography>
+        </Grid>
+        <Grid item>
+          <Button variant='contained' size='large'><AddIcon/>Add</Button>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} sx={{display: 'flex', justifyContent: 'space-between'}}>
         <Grid item lg={10} sm={12}>
           <TextField
             fullWidth
@@ -43,7 +52,7 @@ const OrdersToolBar = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value="sortBy"
+              value="name"
               label="Sort"
               // onChange={dropdownHandleChange}
             >

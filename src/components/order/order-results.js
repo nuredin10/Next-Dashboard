@@ -252,7 +252,11 @@ export const OrderResults = (props) => {
             {data.map((e, i) => (
               e.status == 'Canceld' ? (
 
-                <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+                <Grid onClick={()=>orderOnClickHandler(e)} item sx={{
+                  "&:hover": {
+                    backgroundColor: 'rgba(55, 65, 81, 0.04)'
+                  }, display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)"
+                }} lg={12}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box
                       sx={{
@@ -289,7 +293,11 @@ export const OrderResults = (props) => {
             {data.map((e, i) => (
               e.status == 'Complete' ? (
 
-                <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+                <Grid onClick={()=>orderOnClickHandler(e)} item sx={{
+                  "&:hover": {
+                    backgroundColor: 'rgba(55, 65, 81, 0.04)'
+                  }, display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)"
+                }} lg={12}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box
                       sx={{
@@ -326,7 +334,11 @@ export const OrderResults = (props) => {
             {data.map((e, i) => (
               e.status == 'Pending' ? (
 
-                <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+                <Grid onClick={()=>orderOnClickHandler(e)} item sx={{
+                  "&:hover": {
+                    backgroundColor: 'rgba(55, 65, 81, 0.04)'
+                  }, display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)"
+                }} lg={12}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box
                       sx={{
@@ -363,7 +375,11 @@ export const OrderResults = (props) => {
             {data.map((e, i) => (
               e.status == 'Rejected' ? (
 
-                <Grid item sx={{ display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)" }} lg={12}>
+                <Grid onClick={()=>orderOnClickHandler(e)} item sx={{
+                  "&:hover": {
+                    backgroundColor: 'rgba(55, 65, 81, 0.04)'
+                  }, display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)"
+                }} lg={12}>
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Box
                       sx={{
