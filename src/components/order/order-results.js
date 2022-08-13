@@ -41,71 +41,146 @@ function a11yProps(index) {
 export const OrderResults = (props) => {
   const data = [
     {
+      Id: '5ecb8a7f738cc572a9ce0277',
       Date: "AUG 9",
       OrderNumber: 101,
       Total: "$500.00",
-      status: "Pending"
+      status: "Pending",
+      Customer: {
+        Name: 'Miron Vitold',
+        Street: 'Street John Wick, no. 7',
+        Country: 'San Diego'
+      },
+      PromotionCode: '',
+      TotalAmount: '$500'
     },
     {
+      Id: '6ert4f8a795e53f134013eba3b',
+      Date: "AUG 12",
+      OrderNumber: 102,
+      Total: "$600.00",
+      status: "Complete",
+      Customer: {
+        Name: 'Anthonio Jhon',
+        Street: 'Street John Wick, no. 9',
+        Country: 'Francisco'
+      },
+      PromotionCode: '',
+      TotalAmount: '$400'
+    },
+    {
+      Id: 'sdgjh345j23nmzs2323',
+      Date: "AUG 13",
+      OrderNumber: 103,
+      Total: "$300.00",
+      status: "Pending",
+      Customer: {
+        Name: 'Miron Vitold',
+        Street: 'Street John Wick, no. 7',
+        Country: 'San Diego'
+      },
+      PromotionCode: '',
+      TotalAmount: '$600'
+    },
+    {
+      Id: '75sdfgwe23qwer234',
+      Date: "AUG 8",
+      OrderNumber: 106,
+      Total: "$600.00",
+      status: "Canceled",
+      Customer: {
+        Name: 'Mara Max',
+        Street: 'Street John Wick, no. 7',
+        Country: 'Florida'
+      },
+      PromotionCode: '',
+      TotalAmount: '$900'
+    },
+    {
+      Id: '1234werqwe523e',
+      Date: "AUG 9",
+      OrderNumber: 105,
+      Total: "$500.00",
+      status: "Rejected",
+      Customer: {
+        Name: 'Sandrick Vitold',
+        Street: 'Street John Wick, no. 7',
+        Country: 'San Diego'
+      },
+      PromotionCode: '',
+      TotalAmount: '$300'
+    },
+    {
+      Id: '5ecb8a795e53f134013eba3b',
       Date: "AUG 8",
       OrderNumber: 102,
       Total: "$600.00",
-      status: "Complete"
+      status: "Complete",
+      Customer: {
+        Name: 'someone',
+        Street: 'Street John Wick, no. 7',
+        Country: 'Francisco'
+      },
+      PromotionCode: '',
+      TotalAmount: '$400'
     },
     {
-      Date: "AUG 7",
-      OrderNumber: 103,
-      Total: "$700.00",
-      status: "Canceld"
+      Id: '5ecb8a7f738cc572a9ce0277',
+      Date: "AUG 9",
+      OrderNumber: 101,
+      Total: "$500.00",
+      status: "Canceld",
+      Customer: {
+        Name: 'Miron Vitold',
+        Street: 'Street John Wick, no. 7',
+        Country: 'San Diego'
+      },
+      PromotionCode: '',
+      TotalAmount: '$500'
     },
     {
+      Id: '5ecb8a795e53f134013eba3b',
       Date: "AUG 8",
       OrderNumber: 102,
       Total: "$600.00",
-      status: "Complete"
+      status: "Canceld",
+      Customer: {
+        Name: 'someone',
+        Street: 'Street John Wick, no. 7',
+        Country: 'Francisco'
+      },
+      PromotionCode: '',
+      TotalAmount: '$400'
     },
     {
-      Date: "AUG 7",
-      OrderNumber: 103,
-      Total: "$700.00",
-      status: "Canceld"
+      Id: '5ecb8a7f738cc572a9ce0277',
+      Date: "AUG 9",
+      OrderNumber: 101,
+      Total: "$500.00",
+      status: "Pending",
+      Customer: {
+        Name: 'Miron Vitold',
+        Street: 'Street John Wick, no. 7',
+        Country: 'San Diego'
+      },
+      PromotionCode: '',
+      TotalAmount: '$500'
     },
     {
-      Date: "AUG 6",
-      OrderNumber: 104,
-      Total: "$800.00",
-      status: "Rejected"
+      Id: '5ecb8a795e53f134013eba3b',
+      Date: "AUG 8",
+      OrderNumber: 102,
+      Total: "$600.00",
+      status: "Complete",
+      Customer: {
+        Name: 'someone',
+        Street: 'Street John Wick, no. 7',
+        Country: 'Francisco'
+      },
+      PromotionCode: '',
+      TotalAmount: '$400'
     },
-    {
-      Date: "AUG 7",
-      OrderNumber: 103,
-      Total: "$700.00",
-      status: "Canceld"
-    },
-    {
-      Date: "AUG 7",
-      OrderNumber: 103,
-      Total: "$700.00",
-      status: "Canceld"
-    },
-    {
-      Date: "AUG 6",
-      OrderNumber: 104,
-      Total: "$800.00",
-      status: "Rejected"
-    },
-    {
-      Date: "AUG 7",
-      OrderNumber: 103,
-      Total: "$700.00",
-      status: "Canceld"
-    },
-    {
-      Date: "AUG 6",
-      OrderNumber: 104,
-      Total: "$800.00",
-      status: "Rejected"
-    },
+
   ]
 
   const [status, setStatus] = useState('green');
@@ -114,8 +189,11 @@ export const OrderResults = (props) => {
     setValue(newValue);
   };
 
-  const girdHover = {
-
+  const orderOnClickHandler = (e, data)=>{
+    console.log(e);
+    props.setSelectedOrder(e);
+    // console.log('spmwewrwer')
+    props.setDrawer(true)
   }
   return (
     <Box sx={{ width: '100%' }}>
@@ -134,7 +212,7 @@ export const OrderResults = (props) => {
           <Grid container >
             {data.map((e, i) => (
 
-              <Grid item sx={{
+              <Grid onClick={()=>orderOnClickHandler(e)} item sx={{
                 "&:hover": {
                   backgroundColor: 'rgba(55, 65, 81, 0.04)'
                 }, display: "flex", alignItems: "center", height: "10vh", width: "100%", display: "flex", justifyContent: "space-between", borderTop: 1, borderColor: "rgb(229, 231, 235)"
@@ -316,7 +394,6 @@ export const OrderResults = (props) => {
           </Grid>
         </Box>
       </TabPanel>
-      <Button onClick={() => props.setDrawer(true)}>do</Button>
 
     </Box>
 

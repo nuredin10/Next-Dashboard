@@ -12,6 +12,7 @@ import RightDrawer from 'src/components/order/RightDrawer';
 const Finance = () => {
 
   const [drawer, setDrawer] = useState(false)
+  const [selectedOrder, setSelectedOrder] = useState([]);
 
   return (
     <>
@@ -28,8 +29,8 @@ const Finance = () => {
 
 
             </OrdersToolBar>
-            <OrderResults drawer={drawer} setDrawer={setDrawer}/>
-            <RightDrawer drawer={drawer} setDrawer={setDrawer}/>
+            <OrderResults drawer={drawer} setDrawer={setDrawer} setSelectedOrder={setSelectedOrder}/>
+            <RightDrawer drawer={drawer} setDrawer={setDrawer} selectedOrder={selectedOrder}/>
             {/* <Divider sx={{ borderColor: 'gray', mt: 3}} /> */}
           </Box>
         </Container>
