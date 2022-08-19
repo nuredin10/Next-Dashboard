@@ -294,6 +294,13 @@ export const theme = createTheme({
       fontWeight: 600,
       fontSize: '1.125rem',
       lineHeight: 1.375
+    },
+    menuTitle: {
+      fontWeight: 700,
+      fontSize: '0.9rem',
+      color: 'rgb(107, 114, 128)',
+      marginLeft: '12%',
+      
     }
   }
 });

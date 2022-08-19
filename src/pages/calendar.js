@@ -117,7 +117,7 @@ const Calendar = () => {
           <Typography variant='h1'>Calendar</Typography>
           <Scheduler
       locale="en"
-      events={events}
+      // events={events}
       legacyStyle={false}
       options={state?.options}
       alertProps={state?.alertProps}
